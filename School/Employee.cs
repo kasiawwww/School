@@ -46,6 +46,10 @@ namespace School
             }
         }
 
+        /// <summary>
+        /// Ta metoda ustawia datę zatrudnienia.
+        /// </summary>
+        /// <param name="employmentDate"></param>
         public void SetEmploymentDate(DateTime employmentDate)
         {
             //if (DateTime.Compare(date, employmentDate) >= 0)
@@ -59,8 +63,8 @@ namespace School
 
             //if (employmentDate > EmploymentDate)
             //    EmploymentDate = employmentDate;
-            
-            EmploymentDate = (employmentDate > EmploymentDate) ? employmentDate : EmploymentDate
+
+            EmploymentDate = (employmentDate > EmploymentDate) ? employmentDate : EmploymentDate;
         }
 
         public abstract bool IsWorking(); //abstrakcyjne metody musza zostać zaimplementowane (przesłonięte)

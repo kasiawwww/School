@@ -29,9 +29,18 @@ namespace School
         }
 
         // Tu pokazać brak tej metody.
-        public void SetWorkingHours(int hours)
+        public void SetWorkingHoursFromBase(int hours)
         {
             base.SetWorkingHours(hours);
+        }
+
+        public override int GetWorkingHours()
+        {
+            return GetWorkingHoursFromBase();
+        }
+        public int GetWorkingHoursFromBase()
+        {
+            return WorkingHours;
         }
     }
 }
