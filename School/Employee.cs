@@ -9,10 +9,11 @@ namespace School
     internal abstract class Employee //internal - ograniczenie uzywania klasy do assembly
     {
         //private DateTime EmploymentDate; //pole - ma tylko jeden modyfikator, property może mieć inne modyfikatory przy get i set
-        public DateTime EmploymentDate { get; private set; }
+        public DateTime EmploymentDate { get; private set; } = new DateTime(2000, 1, 1);
 
+        //private DateTime date = new DateTime(2000, 1, 1, 0, 0, 0);
         //private int workingHours;
-        public int WorkingHours { get; private set; }
+        protected int WorkingHours { get; private set; }
         //{
         //    get
         //    {
@@ -34,14 +35,47 @@ namespace School
         //        }
 
         //    }
-    } //property - każdy moze pobrać wartośc ale nie może jej modyfikować
+     //property - każdy moze pobrać wartośc ale nie może jej modyfikować
+     //klasa abstrakcyjna od interfejsu -> klasa abst może mieć metody które mają ciało a interfejs nie
 
         public void SetWorkingHours (int workingHours)
         {
             if (workingHours > 6 && workingHours <13)
             {
-                WorkingHours = workingHours
+                WorkingHours = workingHours;
             }
+        }
+
+        public void SetEmploymentDate(DateTime employmentDate)
+        {
+            //if (DateTime.Compare(date, employmentDate) >= 0)
+            //{
+            //    EmploymentDate = date;
+            //}
+            //else
+            //{
+            //    EmploymentDate = employmentDate;
+            //}
+
+            //if (employmentDate > EmploymentDate)
+            //    EmploymentDate = employmentDate;
+            
+            EmploymentDate = (employmentDate > EmploymentDate) ? employmentDate : EmploymentDate
+        }
+
+        public abstract bool IsWorking(); //abstrakcyjne metody musza zostać zaimplementowane (przesłonięte)
+        public virtual int GetWorkingHours() //wirtualne metody moga być przesłonięte
+        {
+            return 0;
+        }
+
+        public virtual int GetWorkingHours(string dayName) //wirtualne metody moga być przesłonięte
+        {
+            return 0;
+        }
+        public virtual int GetWorkingHours(string dayName, DateTime from) //wirtualne metody moga być przesłonięte
+        {
+            return 0;
         }
     }
 }
