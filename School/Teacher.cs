@@ -8,6 +8,7 @@ namespace School
 {
     internal class Teacher : Employee
     {
+        public string Name { get; set; }
         private int DailyHours { get; set; }
 
         internal Teacher() //konstruktor
